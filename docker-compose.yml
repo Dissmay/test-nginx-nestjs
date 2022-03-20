@@ -28,7 +28,7 @@ services:
     container_name: postgres
     image: postgres:latest
     volumes:
-      - /data/postgres:/data/postgres
+      - demo:/var/lib/postgresql/data
     env_file:
       - docker.env
       - ./.env
@@ -40,6 +40,10 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
       MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    volumes:
+      - ./data/mongo:/data/mongo
+    ports:
+      - 27017:27017
     networks:
       - postgres
     env_file:
@@ -63,3 +67,5 @@ services:
 networks:
   postgres:
     driver: bridge
+volumes:
+  demo:
