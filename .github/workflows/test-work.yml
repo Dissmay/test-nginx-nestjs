@@ -4,23 +4,23 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+#   build:
+#     runs-on: ubuntu-latest
     
-    steps:
-    - uses: actions/checkout@v2
-    - name: docker login
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
-      run: |
-        echo $DOCKER_PASSWORD |  docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin
-    - name: docker build node
-      run: |
-       docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
-    - name:  docker push
-      run: |
-       docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: docker login
+#       env:
+#         DOCKER_USER: ${{ secrets.DOCKER_USER }}
+#         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
+#       run: |
+#         echo $DOCKER_PASSWORD |  docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin
+#     - name: docker build node
+#       run: |
+#        docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
+#     - name:  docker push
+#       run: |
+#        docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
        
  
   deploy:
@@ -31,5 +31,5 @@ jobs:
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/key"
-      - run: ssh root@185.233.36.144
+      - run: "ssh root@185.233.36.144"
       - run: echo "test"
