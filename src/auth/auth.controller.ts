@@ -30,6 +30,7 @@ export class AuthController {
 	// @UsePipes(new ValidationPipe())
 	@Post('register')
 	async register(@Body() registerData: RegisterDto) {
+		console.log(1);
 
 		const user = await this.authService.register(registerData);
 		return user
@@ -40,6 +41,7 @@ export class AuthController {
 	@Post('logIn')
 	@UseGuards(LocalAuthGuard)
 	async logIn(@Req() request: RequestWithUser) {
+
 		const { user } = request;
 		const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
 		const {
