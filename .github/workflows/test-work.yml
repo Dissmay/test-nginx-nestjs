@@ -35,7 +35,7 @@ jobs:
             path: /home
             owner: root
           env:
-           DEPLOY_KEY: '123'
+           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         - name: test
           run: ls
           
