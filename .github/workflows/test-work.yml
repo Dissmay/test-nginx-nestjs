@@ -37,8 +37,5 @@ jobs:
           env:
            DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         - name: test
-          env:
-            DOCKER_USER: ${{ secrets.DOCKER_USER }}
-            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
           run: mkdir LOL
           
