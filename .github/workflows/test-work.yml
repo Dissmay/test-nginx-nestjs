@@ -27,9 +27,12 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-      # Setup key
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/key"
-      - run: ssh root@185.233.36.144 ls -l /home
-      - run: echo "test"
+        - name: Deploy to Server
+          uses: yiier/yii2-base-deploy@master
+          with:
+            user: root
+            host: 185.233.36.144
+            path: /home
+            owner: root
+          env:
+           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
