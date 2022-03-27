@@ -40,4 +40,9 @@ jobs:
         - name: Deploy to 1
           run: |
             echo $DOCKER_PASSWORD |  docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
-          
+        - name: Deploy to 2
+          run: |
+            docker-compose down
+        - name: Deploy to 3
+          run: |
+            docker-compose up -d
