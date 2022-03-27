@@ -8,7 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: copy project
+      uses: actions/checkout@v2
+      
     - name: Build the Docker image
       run: |
         docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
+        
+    - name: Build the Docker image
+      run: |
         docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
