@@ -37,6 +37,11 @@ jobs:
           env:
            DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         - name: test
+        - name: docker login
+          env:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
           run: |
-           docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest 
+            echo $DOCKER_PASSWORD |  docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin
+            docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest 
           
