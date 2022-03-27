@@ -10,16 +10,9 @@ jobs:
     steps:
     - name: copy project
       uses: actions/checkout@v2
-      
-    - name: Build the Docker image
-      run: |
-        docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
         
     - name: login docker
       run: |
+       docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
        echo 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 | docker login https://docker.pkg.github.com -u dissmay --password-stdin
-       
-       
-    - name: Build the Docker image
-      run: |
-        docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
+       docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
