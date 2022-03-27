@@ -31,5 +31,5 @@ jobs:
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/key"
-      - run: ssh root@185.233.36.144
+      - run: ssh root@185.233.36.144 ls -l /home
       - run: echo "test"
