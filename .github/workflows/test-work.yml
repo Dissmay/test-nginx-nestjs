@@ -38,5 +38,5 @@ jobs:
            DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         - name: test
           run: |
-           docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
+           docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest 
           
