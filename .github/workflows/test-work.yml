@@ -37,5 +37,5 @@ jobs:
           env:
            DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         - name: test
-          run: mkdir LOL
+          run: ls
           
