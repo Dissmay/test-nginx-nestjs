@@ -21,3 +21,18 @@ jobs:
     - name:  docker push
       run: |
        docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
+ 
+         
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+      - name: go to server
+        with:
+         user: root
+         host: 185.233.36.144
+         owner: root
+     env:
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+       
+     
+  
