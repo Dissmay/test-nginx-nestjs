@@ -10,5 +10,5 @@ jobs:
     steps:
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
+        docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
         docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
