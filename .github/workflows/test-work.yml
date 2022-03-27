@@ -17,7 +17,7 @@ jobs:
         
     - name: login docker
       run: |
-       echo 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 | docker login https://docker.pkg.github.com -u dissmay --passwpord-stdin
+       echo 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 | docker login https://docker.pkg.github.com -u dissmay --password-stdin
        
        
     - name: Build the Docker image
