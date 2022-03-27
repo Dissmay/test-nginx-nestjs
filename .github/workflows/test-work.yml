@@ -30,7 +30,6 @@ jobs:
         with:
          user: root
          host: 185.233.36.144
-         owner: root
      env:
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
        
