@@ -9,20 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    
-    - name: copy project
-      uses: actions/checkout@v2
-      
-      
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        
-        
-    - name: login docker
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}   
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: docker build python
       run: |
        docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
+    - name:  docker push
+      run: |
        docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
