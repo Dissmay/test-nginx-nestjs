@@ -14,5 +14,5 @@ jobs:
     - name: login docker
       run: |
        docker image build . --tag docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest
-       echo 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 | docker login https://docker.pkg.github.com -u dissmay --password-stdin
+       echo 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 | docker login https://docker.pkg.github.com -u dissmay --password-stdin
        docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
