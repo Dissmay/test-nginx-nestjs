@@ -34,4 +34,5 @@ jobs:
           password: tqazwr2123
           port: 22
           script: |
-            pwd
+            cd ./test-nginx-nestjs
+            ls
