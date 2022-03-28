@@ -31,7 +31,7 @@ jobs:
         with:
           host: 185.233.36.144
           username: root
-          key: ${{ secrets.DEPLOY_KEY }}
+          password: tqazwr2123
           port: 22
           script: |
             echo test
