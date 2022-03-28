@@ -34,4 +34,4 @@ jobs:
           password: tqazwr2123
           port: 22
           script: |
-            echo test
+            echo pwd
