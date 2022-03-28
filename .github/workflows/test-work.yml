@@ -43,7 +43,9 @@ jobs:
       #   docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
       - name: Deploy to 2
         run: |
-          echo $PWD
+          cd /root
+          cd  test
+          ls
         shell: bash
       # - name: Deploy to 3
       #   run: |
