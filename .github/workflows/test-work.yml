@@ -36,4 +36,3 @@ jobs:
           script: |
             cd ./test-nginx-nestjs
             docker-compose down
-            docker-compose up -d
