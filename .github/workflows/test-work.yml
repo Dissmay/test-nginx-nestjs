@@ -35,4 +35,5 @@ jobs:
           port: 22
           script: |
             cd ./test-nginx-nestjs
-            ls
+            docker-compose down
+            docker-compose up -d
