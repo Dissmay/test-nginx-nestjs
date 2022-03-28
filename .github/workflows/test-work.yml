@@ -31,8 +31,7 @@ jobs:
         with:
           host: 185.233.36.144
           username: root
-          password: tqazwr2123
+          key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
             cd ./test-nginx-nestjs
-            docker-compose down
