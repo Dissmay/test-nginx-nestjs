@@ -22,19 +22,20 @@ jobs:
         run: |
           docker push docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
 
-  # deploy:
-  #   name: Build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: executing remote ssh commands using password
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: 185.233.36.144
-  #         username: root
-  #         key: ${{ secrets.DEPLOY_KEY }}
-  #         port: 22
-  #         script: |
-  #           cd ./test-nginx-nestjs
+  deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: 185.233.36.144
+          username: root
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: |
+            cd ./test-nginx-nestjs
+            ls
   #   steps:
   #     - name: executing remote ssh commands using password
   #       uses: appleboy/ssh-action@master
