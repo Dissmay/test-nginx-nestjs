@@ -27,24 +27,16 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-        - name: Deploy to Server
-          uses: yiier/yii2-base-deploy@master
-          with:
-            user: root
-            host: 185.233.36.144
-            path: /
-            owner: root
-          env:
-           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-           DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        - name: Deploy to 1
-          run: |
-            echo $DOCKER_PASSWORD |  docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin 
-            docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
-        - name: Deploy to 2
-          run: |
-            docker-compose down
-        - name: Deploy to 3
-          run: |
-            docker-compose up -d
+       - name: checkout
+         uses: actions/checkout@v1
+         
+         
+       - name: copy file via ssh key
+         uses: ./
+         with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          source: "tests/a.txt,tests/b.txt"
+          target: "test
