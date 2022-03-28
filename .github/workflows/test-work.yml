@@ -37,16 +37,14 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        run: |
-          echo $PWD
       # - name: Deploy to 1
       # run: |
       #   echo $DOCKER_PASSWORD | docker login https://docker.pkg.github.com -u $DOCKER_USER --password-stdin
       #   docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
-      # - name: Deploy to 2
-      #   run: |
-      #     echo $PWD
-      #   shell: bash
+      - name: Deploy to 2
+        run: |
+          echo $PWD
+        shell: bash
       # - name: Deploy to 3
       #   run: |
       #     docker-compose up -d
