@@ -53,7 +53,7 @@ export class AuthController {
 
 		request.res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
 
-		return user;
+		return 1;
 	}
 
 	@Post('refresh')
