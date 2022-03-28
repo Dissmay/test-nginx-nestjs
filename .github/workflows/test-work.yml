@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v1
       # - name: Deploy to Server
       #   uses: yiier/yii2-base-deploy@master
       #   with:
