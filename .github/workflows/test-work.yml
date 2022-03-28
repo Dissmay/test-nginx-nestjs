@@ -37,6 +37,7 @@ jobs:
           script: |
             cd ./test-nginx-nestjs
             docker pull docker.pkg.github.com/dissmay/test-nginx-nestjs/test-nest:latest
+            docker-compose up -d
   #   steps:
   #     - name: executing remote ssh commands using password
   #       uses: appleboy/ssh-action@master
