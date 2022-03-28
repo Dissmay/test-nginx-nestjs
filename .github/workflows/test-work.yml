@@ -31,6 +31,16 @@ jobs:
   #       with:
   #         host: 185.233.36.144
   #         username: root
+  #         key: ${{ secrets.DEPLOY_KEY }}
+  #         port: 22
+  #         script: |
+  #           cd ./test-nginx-nestjs
+  #   steps:
+  #     - name: executing remote ssh commands using password
+  #       uses: appleboy/ssh-action@master
+  #       with:
+  #         host: 185.233.36.144
+  #         username: root
   #         password: tqazwr2123
   #         port: 22
   #         script: |
